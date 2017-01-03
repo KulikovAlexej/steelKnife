@@ -1,1 +1,1 @@
-*{margin:0;padding:0}.clearfix:after{content:"";display:block;height:0;clear:both;visibility:hidden}header{background-color:green}
+*{margin:0;padding:0}.clearfix:after{content:"";display:block;height:0;clear:both;visibility:hidden}header{display:none}header #hamburger{margin:20px;width:50px}header #hamburger div{width:100%;height:5px;margin:5px 0;background-color:#000;display:block}header .logo h1{text-align:right;text-transform:uppercase;font-family:GothaProLig}header .logo h1 span{font-family:GothaProBol}aside .rotate_logo{background-color:green}

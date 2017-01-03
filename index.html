@@ -2,28 +2,45 @@
 <html>
   <head>
     <title>Default title</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="libs/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/media.css">
     <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="libs/bootstrap-grid.min.css">
     <script src="libs/jquery-3.0.0.min.js"></script>
+    <script src="js/common.js"></script>
   </head>
   <body>
     <header>
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-xs-4">
-            <h1>Заголовок 1</h1>
+            <div id="hamburger">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
           </div>
-          <div class="col-xs-4">
-            <h1>Заголовок 2</h1>
+          <div class="col-xs-8">
+            <div class="logo">
+              <h1>steel <span>knife</span></h1>
+            </div>
           </div>
         </div>
       </div>
     </header>
-    <h3>sidebar</h3>
-    <p>я изменяющийся контент</p>
-    <p>footer</p>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3">
+          <aside>
+            <div class="rotate_logo">steel knife</div>
+          </aside>
+        </div>
+        <p>я изменяющийся контент</p>
+        <p>footer</p>
+      </div>
+    </div>
   </body>
 </html>
