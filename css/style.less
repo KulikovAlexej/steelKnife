@@ -1,4 +1,5 @@
 @main-color: #000000;
+@accent-color: white;
 *{
 	margin: 0;
 	padding: 0;
@@ -35,7 +36,108 @@ header{
 	}
 }
 aside{
+	background-color: @main-color;
+	margin: 10px 0;
+	padding: 50px 10px 10px 10px;
+	position: fixed;
+	width: 30%;
+	max-width: 360px;
 	.rotate_logo{
-		background-color: green;
+		h1{
+			color: @accent-color;
+			text-transform: uppercase;
+			font-family: 'GothaProLig';
+			text-align: right;
+			margin: 0;
+			float: right;
+			margin-bottom: 40px;
+			&:first-child{
+				text-align: left;
+				float: left;
+			}
+			&:last-child{
+			}
+			span{
+				font-family: 'GothaProBol';
+			}
+		}
+		.logo_wrap{
+			width: 33%;
+			left: 50%;
+			transform: translate(-50%);
+			position: absolute;
+			img{
+				width: 100%;
+				height: 100%;
+				transform: rotateZ(0deg);
+				transition: transform .5s;
+				&:hover{
+					transform: rotateZ(180deg);
+				}
+			}
+		}
+	}
+	nav{
+		margin-top: 30px;
+		ul{
+			li{
+				text-align: center;
+				list-style: none;
+				font-family: "GothaProReg";
+				font-size: 16px;
+				text-transform: uppercase;
+				margin: 10px 0;
+				a{
+					color: @accent-color;
+					text-decoration: none;
+					&:active{
+						color: @accent-color;
+						text-decoration: none;
+					}
+					&:visited{
+						color: @accent-color;
+						text-decoration: none;
+					}
+					&:hover{
+						color: @accent-color;
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+	.mobile_numbers{
+		margin-top: 30px;
+		li{
+			text-align: center;
+			list-style: none;
+			font-family: "GothaProReg";
+			color: @accent-color;
+			margin: 10px 0;
+			font-size: 16px;
+		}
+	}
+	#write_us{
+		padding: 20px 40px;
+		font-family: "GothaProReg";
+		font-size: 16px;
+		background-color: @accent-color;
+		border: solid 1px @main-color;
+		text-transform: uppercase;
+		margin: 0 auto;
+		display: block;
+		transition: all .4s;
+		&:hover{
+			background-color: @main-color;
+			color: @accent-color;
+			border: solid 1px @accent-color;
+		}
+	}
+	.social_network{
+		ul{
+			li{
+				font-family: 'GothaProBol';
+			}
+		}
 	}
 }
