@@ -35,7 +35,19 @@ header{
 		}
 	}
 }
+.dark_layout{
+	width: 100%;
+	position: absolute;
+	z-index: 11;
+	background-color: @main-color;
+	opacity: 0;
+	display: none;
+}
+.active{
+	
+}
 aside{
+	z-index: 222;
 	background-color: @main-color;
 	margin: 10px 0;
 	padding: 50px 10px 10px 10px;
@@ -138,6 +150,71 @@ aside{
 			li{
 				font-family: 'GothaProBol';
 			}
+		}
+	}
+}
+.wrap_content{
+	padding: 15px;
+	padding-top: 5px;
+	float: right;
+	z-index: 0;
+	.wrap_category{
+		img{
+			width: 100%;
+		}
+	}
+	#cat_damask{
+		padding: 5px;
+	}
+	#cat_95X18{
+		height: 40%;
+		width: 50%;
+		float: left;
+		padding: 5px;
+	}
+	#cat_65X13{
+		height: 40%;
+		width: 50%;
+		float: right;
+		padding: 5px;
+	}
+	.about_us{
+		padding: 5px;
+		.capture_us{
+			margin: 10px 0;
+			h1{
+				text-align: left;
+				font-family: 'GothaProBol';
+				margin: 0;
+				font-size: 25px;
+			}
+		}
+		.content_us{
+			margin: 10px 0;
+			p{
+				font-family: "GothaProReg";
+			}
+			.icon_wrap{
+				width: 200px;
+				// background-color: yellow;
+				padding: 0 10px;
+				img{
+					width: 100%;
+				}
+				p{
+					margin: 15px 0;
+					font-size: 16px;
+					text-align: center;
+					text-transform: uppercase;
+					font-family: "GothaProReg";
+				}
+			}
+		}
+		.wrap_all_icon{
+			// background-color: red;
+		    display: flex;
+    		flex-wrap: wrap;
+    		justify-content: space-around;
 		}
 	}
 }
