@@ -1,26 +1,69 @@
 $(document).ready(function(){
   $('#hamburger').mouseover(function(){
-  	// $('#hamburger div').css({
-  	// 	backgroundColor: 'red',
-  	// })
+  	$('#hamburger div').css({
+  		backgroundColor: 'grey',
+  	})
+  })
+  $('#hamburger').mouseout(function(){
+    $('#hamburger div').css({
+      backgroundColor: 'black',
+    })
+  })
+  $('nav ul li').mouseover(function(){
+    $link = $(this);
+    // $link.find('span').animate({
+    //   width: 25
+    // },200)
+    // $link.find('span').css({
+    //   width: 25
+    // },200)
+    $('nav ul li span').removeClass('active');
+    $link.find('span').addClass('active');
+  })
+  // $('nav ul li').hover(function(){
+  //   $('nav ul li span').css({
+  //     width: 0
+  //   })
+  // })
+  $('#catalog').mouseover(function(){
+    $('#catalog nav').css({
+      display: 'block',
+      opacity: 0
+    })
+    .animate({
+      opacity: 1
+    },300)
+  })
+  $('#catalog nav').mouseout(function(){
+    $('#catalog nav').css({
+      display: 'none'
+    })
   })
   
   $('#hamburger').click(function(){
-    slide_sidebar(15, 1000);
+    $window_width = $(window).width();
+    if($window_width < 1200 && $window_width >= 768){
+      beautiful_slide(15, 1000);
+    }
+    else if($window_width < 768){
+      slide_sidebar(15,1000);
+    }
   })
   $window_width = $(window).width();
   $window_height = $(window).height();
   change_sidebar();
   resize_category();
-  install_dark_layout();
+  // install_dark_layout();
+  hide_sidebar();
   $(window).resize(function(){
   	change_sidebar();
     resize_category();
-    install_dark_layout();
+    // install_dark_layout();
+    fixed_sidebar();
   })
 function change_sidebar(){
   	$aside_height = $('aside').outerHeight();
-  	if($window_width > 1200 && $aside_height > $window_height){
+  	if($window_width >= 1200 && $aside_height >= $window_height){
   		$('aside').css({
 			position: 'absolute',
 			width: '100%'
@@ -29,7 +72,7 @@ function change_sidebar(){
 }
 function resize_category(){
   $window_width = $(window).width();
-  if($window_width > 768){  
+  if($window_width >= 768){  
     $aside_width = $('aside').outerWidth();
     $content_width = $window_width - ($aside_width + 20);
     $('.wrap_content').css({
@@ -37,12 +80,25 @@ function resize_category(){
     })
   }
 }
+function fixed_sidebar(){
+  $window_width = $(window).width();
+  if($window_width >= 1200){
+    $('aside').css({
+      display: 'block',
+      marginLeft: 0
+    })
+  }
+}
 function slide_sidebar($bootstrap_margin, $time){
     $visible = $('aside').css('display');
     $content_width = $('.wrap_content').outerWidth();
     $aside_width = $('aside').outerWidth();
-    console.log($content_width + $aside_width);
+    $dl_height = $('html').height();
+    $('.dark_layout').css({
+      height: $dl_height
+    })
     if($visible == 'block'){
+      //прячем
       $('.dark_layout').animate({
         opacity: 0
       }, 1000);
@@ -50,24 +106,78 @@ function slide_sidebar($bootstrap_margin, $time){
         marginLeft: -($aside_width + $bootstrap_margin),
       },1000, function(){
         $('aside').hide();
+        $('.dark_layout').css({
+          display: 'none'
+        })
       })
     }
     else if($visible == 'none'){
-      $('.dark_layout').animate({
-        opacity: 0.95
+      //показываем
+      $('.dark_layout').css({
+        display: 'block'
+      })
+      .animate({
+        opacity: 0.9
       }, 1000);
-      $('aside').show()
+      $('aside').css({
+        display: 'block',
+        marginLeft: -($aside_width + $bootstrap_margin)
+      })
       .animate({
         marginLeft: 0
       }, 1000)
     }
   }
-  function install_dark_layout(){
-    $dl_height = $('html').height();
-    console.log($dl_height);
-    $('.dark_layout').css({
-      height: $dl_height
-    })
+  // function install_dark_layout(){
+  //   $dl_height = $('html').height();
+  //   $('.dark_layout').css({
+  //     height: $dl_height
+  //   })
+  // }
+  function beautiful_slide($bootstrap_margin, $time){
+    $window_width = $(window).width();
+    $visible = $('aside').css('display');
+    $content_width = $('.wrap_content').outerWidth();
+    $aside_width = $('aside').outerWidth();
+    if($window_width >= 768 && $window_width < 1200){
+      if($visible == 'block'){
+        //прячем
+        $('aside').animate({
+          marginLeft: -($aside_width + $bootstrap_margin),
+        },$time, function(){
+          $('aside').hide();
+        })
+        $('.wrap_content').animate({
+          width: $content_width + $aside_width + $bootstrap_margin
+        },$time)
+
+      }
+      else if($visible == 'none'){
+        //показываем
+        $aside_width = $('aside').outerWidth();
+        $('aside').css({
+          display: 'block',
+          marginLeft: -($aside_width + $bootstrap_margin)
+        })
+        .animate({
+          marginLeft: 0
+        },$time)
+        $('.wrap_content').animate({
+          width: $content_width - $aside_width - $bootstrap_margin
+        }, $time)
+      }
+    }
+  }
+
+  function hide_sidebar(){
+    if($window_width < 992){
+      $('aside').css({
+        display: 'none'
+      })
+      $('.wrap_content').css({
+        width: '100%'
+      })
+    }
   }
   
 });
