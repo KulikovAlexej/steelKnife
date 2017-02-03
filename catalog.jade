@@ -1,0 +1,64 @@
+extends includes/layout.jade
+block other_style
+	link(rel='stylesheet', href='css/catalog/catalog.css')
+	link(rel='stylesheet', href='css/catalog/catalog_media.css')
+//- в этом месте надо вынести aside в миксину или что-то подобное block aside
+block content
+	.wrap_content
+		.tab_wrapper
+			.tab_menu.clearfix
+				ul
+					li.active Ножи из дамасской стали
+					li.active Ножи из стали 65Х13
+					li.active Ножи из стали 95Х18
+				.black_line
+			.tab_content.clearfix
+				-var knifeProp = {'марка стали':'дамасская сталь', 'длина клинка': "160мм", 'общая длина': "290мм", 'ширина клинка': "26-32мм",'толщина обуха': '2,2-2,5мм', 'длина рукояти': "130мм", 'материал рукояти': "ценные породы дерева, литье - мельхиор", 'твердость клинка': "60HRC"}
+				.knife_item_wrap.active
+					.knife_item
+						-for(var i = 0; i < 4; i++){
+							a(href='https://steelknife.pro')
+								.knife_wrap.clearfix
+									img(src='img/damasskaja/berkut-nozh-damasskaja.png')
+									.knife_info
+										-each value, propertyName in knifeProp
+											div
+												span.name #{propertyName}
+												span.value #{value}
+									h3 Беркут
+									.price 3000Р
+									a(href='https://youtube.com')
+										.youtube.active YouTube
+						-}
+				.knife_item_wrap
+					.knife_item
+						-for(var i = 0; i < 3; i++){
+							a(href='https://steelknife.pro')
+								.knife_wrap.clearfix
+									img(src='img/damasskaja/berkut-nozh-damasskaja.png')
+									.knife_info
+										-each value, propertyName in knifeProp
+											div
+												span.name #{propertyName}
+												span.value #{value}
+									h3 Беркут
+									.price 3000Р
+									a(href='https://youtube.com')
+										.youtube YouTube
+						-}
+				.knife_item_wrap
+					.knife_item
+						-for(var i = 0; i < 6; i++){
+							a(href='https://steelknife.pro')
+								.knife_wrap.clearfix
+									img(src='img/damasskaja/berkut-nozh-damasskaja.png')
+									.knife_info
+										-each value, propertyName in knifeProp
+											div
+												span.name #{propertyName}
+												span.value #{value}
+									h3 Беркут
+									.price 3000Р
+									a(href='https://youtube.com')
+										.youtube.active YouTube
+						-}
