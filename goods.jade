@@ -1,0 +1,64 @@
+extends includes/layout.jade
+block other_style
+	link(rel='stylesheet', href='css/goods/goods.css')
+	link(rel='stylesheet', href='css/goods/goods_media.css')
+block other_scripts
+	script(src='js/goods.js')
+block image_popup
+	.image_popup
+		.wrap_img
+			img(src='img/95х18/eger-nozh-95-18.png')
+			#close_img
+				img(src='img/icons/close.svg')
+block content
+	.wrap_content
+		.row
+			.col-md-7.col-sm-6
+				.goods
+					img(src='img/damasskaja/ris-nozh-damasskaja.png')
+			.col-md-5.col-sm-6
+				.description
+					h1 осетр
+					.buttons
+						button.buy 1250Р
+						button.youtube.active смотреть обзор на youtube
+					.property
+						-var knifeProp = {'марка стали':'дамасская сталь', 'длина клинка': "160мм", 'общая длина': "290мм", 'ширина клинка': "26-32мм",'толщина обуха': '2,2-2,5мм', 'длина рукояти': "130мм", 'материал рукояти': "ценные породы дерева, литье - мельхиор", 'твердость клинка': "60HRC"}
+							-each value, propertyName in knifeProp
+								div
+									span.name #{propertyName}
+									span.value #{value}
+					.about_knife
+						p 65Х13 – отечественная сталь, одна из самых распространенных,надежных и практичных. Главные достоинства стали-она никогда не ржавеет,долго держит заточку и не требует дополнительного ухода. В целом можно сказать, что ножи из 65Х13 подойдут для охотников-любителей, рыбаков и туристов. Нож выполнен из натуральных материалов,изготовление в ручную подразумевает оригинальность и неповторимость каждого изделия. Нож комплектуется чехлом из натуральной кожи и сертификатом. Все представленные на сайте ножи не являются холодным оружием и разрешены к свободному ношению.
+					.mailto
+						button напишете нам
+		.row
+			.see_also_wrap
+				h2 Смотрите также
+				.knife_item
+					-for(var i = 0; i < 3; i++){
+						a(href='https://steelknife.pro')
+							.knife_wrap.clearfix
+								img(src='img/damasskaja/berkut-nozh-damasskaja.png')
+								.knife_info
+									-each value, propertyName in knifeProp
+										div
+											span.name #{propertyName}
+											span.value #{value}
+								h3 Беркут
+								.price 3000Р
+								a(href='https://youtube.com')
+									.youtube YouTube
+					-}
+					a(href='https://steelknife.pro')
+							.knife_wrap.clearfix
+								img(src='img/damasskaja/berkut-nozh-damasskaja.png')
+								.knife_info
+									-each value, propertyName in knifeProp
+										div
+											span.name #{propertyName}
+											span.value #{value}
+								h3 Беркут
+								.price 3000Р
+								a(href='https://youtube.com')
+									.youtube.active YouTube

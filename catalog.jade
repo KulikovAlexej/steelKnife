@@ -3,14 +3,16 @@ block other_style
 	link(rel='stylesheet', href='css/catalog/catalog.css')
 	link(rel='stylesheet', href='css/catalog/catalog_media.css')
 //- в этом месте надо вынести aside в миксину или что-то подобное block aside
+block other_scripts
+	script(src='js/catalog.js')
 block content
 	.wrap_content
 		.tab_wrapper
 			.tab_menu.clearfix
 				ul
 					li.active Ножи из дамасской стали
-					li.active Ножи из стали 65Х13
-					li.active Ножи из стали 95Х18
+					li Ножи из стали 65Х13
+					li Ножи из стали 95Х18
 				.black_line
 			.tab_content.clearfix
 				-var knifeProp = {'марка стали':'дамасская сталь', 'длина клинка': "160мм", 'общая длина': "290мм", 'ширина клинка': "26-32мм",'толщина обуха': '2,2-2,5мм', 'длина рукояти': "130мм", 'материал рукояти': "ценные породы дерева, литье - мельхиор", 'твердость клинка': "60HRC"}
